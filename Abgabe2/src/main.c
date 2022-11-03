@@ -25,16 +25,13 @@ int main(void)
 	printIntArray(samples, 8);
 
 	printf("Summe des Samples: %d \n", printSumIntArray(samples, 8));
+	*/
 
 	profBWurfel();
 
-	smartCoinMachine();
-	*/
+	smartCoinMachine(getUserInput());
 
-	sillyCoinMachine();
-
-
-
+	sillyCoinMachine(getUserInput());
 
 
 	return EXIT_SUCCESS;

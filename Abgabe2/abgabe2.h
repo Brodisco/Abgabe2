@@ -33,8 +33,9 @@ void profBWurfel();
 /*
  *  Aufgabe 5
  */
-int *smartCoinMachine();
+void smartCoinMachine();
 void sillyCoinMachine();
-int *rebaseOutput(int coinType, int maxCoins, int *output, int *coins);
+int distributeCoin(int *output, int *coins, int *maxCoins, int endPosition, int intInput);
+int getUserInput();
 
 #endif /* ABGABE2_H_ */

@@ -7,38 +7,30 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "abgabe2.h"
+#define coinType 8
 
-int *smartCoinMachine()
+void smartCoinMachine(int input)
 {
-	#define coinType 8
 
 	int maxCoins = 100;
-	double coins[coinType] = {2.0, 1.0, 0.5, 0.2, 0.1 , 0.05 , 0.02 , 0.01};
-	static int output[coinType] = {0, 0, 0, 0, 0, 0, 0, 0};
+	int coins[coinType] = {200, 100, 50, 20, 10, 5, 2, 1};
+	int output[coinType] = {0, 0, 0, 0, 0, 0, 0, 0};
+	int checkSolution = 0;
+	int coinCount = 0;
+	int inputBackup = input;
 
-	float input;
-	printf("Input: ");
-	scanf("%f", &input);
-
-
-
-	if (input <= 200)
+	if (input <= 20000)
 	{
 
 		for (int i = 0; i < coinType; i++)
 		{
 
-			//printf("Stöbere in %f Euro \n", coins[i]);
-
 			int count = 0;
 
-			while ( count < maxCoins && (input - coins[i] >= -0.001) )
+			while ( count < maxCoins && (input - coins[i] >= 0) )
 			{
-				//printf("%d: %f - %f ", count, input, coins[i]);
 
 				input -= coins[i];
-
-				//printf("= %f \n", input);
 
 				output[i]++;
 
@@ -46,13 +38,19 @@ int *smartCoinMachine()
 			}
 		}
 
-		//printf("End: %f \n", input);
-
 		for (int i = 0; i < coinType; i++)
 		{
-			printf("Coin %1.2f: %d \n", coins[i], output[i]);
+			printf("Output: %3.2f: %d \n", (coins[i] / 100.0), output[i]);
+			checkSolution += output[i] * coins[i];
+			coinCount += output[i];
 		}
 
+		if (checkSolution != inputBackup)
+		{
+			printf("End: %d != %d \n", checkSolution, inputBackup);
+		}
+
+		printf("END with %d Coins! \n", coinCount);
 
 	} else {
 
@@ -60,5 +58,4 @@ int *smartCoinMachine()
 
 	}
 
-	return output;
 }
