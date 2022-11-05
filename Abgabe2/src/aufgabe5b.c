@@ -73,8 +73,9 @@ int getUserInput()
 	printf("Input: ");
 	scanf("%f", &input);
 	printf("\n");
-	input *= 100;
+	input *= 100.0001;
 	int intInput = (int)input;
+	printf("Input Convert:%5d\n", intInput);
 	return intInput;
 }
 
