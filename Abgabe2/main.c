@@ -176,7 +176,7 @@ void nickelback() {
 	if (muenze_c1 > 0) {
 		printf("%i x 1 Cent, ", muenze_c1);
 	}
-	printf("Gesamtanzahl: %i\n", muenze_e2 + muenze_e1 + muenze_c50 + muenze_c20 + muenze_c10 + muenze_c5 + muenze_c2 + muenze_c1);
+	printf("Gesamtanzahl Münzen: %i \t Betrag in Cent: %i \n", muenze_e2 + muenze_e1 + muenze_c50 + muenze_c20 + muenze_c10 + muenze_c5 + muenze_c2 + muenze_c1, muenze_e2*200 + muenze_e1*100 + muenze_c50*50 + muenze_c20*20 + muenze_c10*10 + muenze_c5*5 + muenze_c2*2 + muenze_c1*1);
 
 
 
@@ -392,7 +392,7 @@ void nickelback() {
 		if (muenze_c1 > 0) {
 			printf("%i x 1 Cent, ", muenze_c1);
 		}
-		printf("Gesamtanzahl: %i\n", muenze_e2 + muenze_e1 + muenze_c50 + muenze_c20 + muenze_c10 + muenze_c5 + muenze_c2 + muenze_c1);
+		printf("Gesamtanzahl Münzen: %i \t Betrag in Cent: %i \n", muenze_e2 + muenze_e1 + muenze_c50 + muenze_c20 + muenze_c10 + muenze_c5 + muenze_c2 + muenze_c1, muenze_e2*200 + muenze_e1*100 + muenze_c50*50 + muenze_c20*20 + muenze_c10*10 + muenze_c5*5 + muenze_c2*2 + muenze_c1*1);
 }
 
 int main(void)
