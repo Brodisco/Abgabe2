@@ -33,7 +33,7 @@ void profBWurfel();
 /*
  *  Aufgabe 5
  */
-void smartCoinMachine();
+int *smartCoinMachine();
 void sillyCoinMachine();
 int distributeCoin(int *output, int *coins, int *maxCoins, int endPosition, int intInput);
 int getUserInput();

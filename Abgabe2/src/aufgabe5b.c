@@ -12,33 +12,19 @@
 #define _FAIL 0
 #define _SUCCESS 1
 
-int distributeCoin(int *output, int *coins, int *maxCoins, int endPosition, int input)
+int distributeCoin(int *output, int *coins, int *maxCoins, int startPos, int input)
 {
 	int count = 0;
 	int ret = _SUCCESS;
 	int check = input;
 	int revealList[coinType] = {0, 0, 0, 0, 0, 0, 0, 0};
 
-	for (int i = (coinType - 1); i >= endPosition; i--)
+	for (int i = startPos; i < coinType; i++)
 	{
 
 		count = 0;
 
-		if (i == coinType - 1 && output[i] == 0)
-		{
-			int test = (int) input * 0.01;
-			test *= 100;
-
-			count = *maxCoins - (input - test);
-			if (count == *maxCoins) count = 0;
-		}
-
-		if ( ((input / 100) % 2 == 1) && (i == coinType - 7) && output[i] == 0)
-		{
-			count = 1;
-		}
-
-		while ( count < *maxCoins && (input - coins[i] >= 0) && output[i] < *maxCoins)
+		while ( count < maxCoins[i] && (input - coins[i] >= 0) && output[i] < maxCoins[i])
 		{
 			input -= coins[i];
 
@@ -82,33 +68,77 @@ int getUserInput()
 void sillyCoinMachine(int input)
 {
 
-	int maxCoins = 100;
 	int maxCoin[coinType] = {100, 100, 100, 100, 100, 100, 100, 1};
 	int coins[coinType] = {200, 100, 50, 20, 10 , 5 , 2 , 1};
-	int output[coinType] = {0, 0, 0, 0, 0, 0, 0, 0};
+	int *output;
 	int checkSolution = 0;
 	int coinCount = 0;
 
 	if (input <= 20000)
 	{
-		distributeCoin(output, coins, &maxCoins, 0, input);
 
-		for (int i = (coinType - 2); i >= 0; i--)
+		output = smartCoinMachine(input);
+
+
+
+		for (int i = 0; i < coinType; i++)
 		{
 
 			if (output[i] > 0)
 			{
 				int check = _SUCCESS;
+				int mulitplikator = 1;
+
+
 
 				while (check == _SUCCESS)
 				{
-					check = distributeCoin(output, coins, &maxCoins, (i + 1), coins[i]);
+
+					check = distributeCoin(output, coins, maxCoin, (i + 1), coins[i] * mulitplikator);
+
 
 					if (check == _SUCCESS)
 					{
-						output[i] -= 1;
+
+						output[i] -= mulitplikator;
+
+					} else {
+
+						if (output[i] > 0 && i == 5)
+						{
+							if (mulitplikator == 2)
+							{
+								if (output[7] == 1 && (output[6] <= maxCoin[6] - 3 ) )
+								{
+									output[7] = 0;
+									distributeCoin(output, coins, maxCoin, (i + 1), coins[i] + 1);
+									output[i] -= 1;
+								}
+
+								break;
+							}
+							mulitplikator = 2;
+
+							if (mulitplikator <= 2)
+							{
+								check = _SUCCESS;
+							} else {
+								break;
+							}
+
+						}
 					}
 
+					if (output[i] == 0)
+					{
+						check = _FAIL;
+					}
+					/*
+					for (int i = 0; i < coinType; i++)
+					{
+						printf("Output: %3.2f: %d \n", (coins[i] / 100.0), output[i]);
+					}
+					*/
 				}
 
 			}
@@ -124,15 +154,14 @@ void sillyCoinMachine(int input)
 
 		if (checkSolution != input)
 		{
-			printf("End: %d != %d \n", checkSolution, input);
+			printf("SILLY MACHINE ERROR: %d != %d \n", checkSolution, input);
 		}
 
-		printf("END with %d Coins! \n", coinCount);
+		printf("SILLY MACHINE ENDS with %d Coins! \nCheckVal: %d\n", coinCount, checkSolution);
 
 	} else {
 
 		printf("Geldbetrag ist zu Groß! \n");
 
 	}
-
 }

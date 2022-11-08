@@ -25,14 +25,22 @@ int main(void)
 	printIntArray(samples, 8);
 
 	printf("Summe des Samples: %d \n", printSumIntArray(samples, 8));
-	*/
+
 
 	profBWurfel();
 
 	smartCoinMachine(getUserInput());
 
-	sillyCoinMachine(getUserInput());
 
+
+*/
+	for (int i = 0; i < 20000; i++)
+	{
+		sillyCoinMachine(i);
+	}
+	printf("Test Successfull \n");
+
+	sillyCoinMachine(getUserInput());
 
 	return EXIT_SUCCESS;
 }
