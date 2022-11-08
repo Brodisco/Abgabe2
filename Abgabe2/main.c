@@ -113,8 +113,7 @@ void nickelback() {
 		}
 	}
 
-
-	int eingabe_cent = eingabe * 100;
+	int eingabe_cent = eingabe * 100.01;
 	// printf("%i", eingabe_cent);
 
 	while (eingabe_cent > 0) {
@@ -191,7 +190,7 @@ void nickelback() {
 	muenze_c2 = 0;
 	muenze_c1 = 0;
 
-	eingabe_cent = eingabe * 100;
+	eingabe_cent = eingabe * 100.01;
 
 	/*
 	MaxB.	Summe
@@ -397,7 +396,7 @@ void nickelback() {
 
 int main(void)
 {
-	/*
+
 	printf("Abgabe 2\n");
 	printf("\nAufgabe 1\n");
 
@@ -419,7 +418,8 @@ int main(void)
 	// Aufgabe 4
 	printf("\nAufgabe 4\n");
 	rollTheDices();
-*/
+
+
 	// Aufgabe 5
 	printf("\nAufgabe 5\n");
 	nickelback();
