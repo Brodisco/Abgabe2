@@ -147,7 +147,7 @@ void sillyCoinMachine(int input)
 
 		for (int i = 0; i < coinType; i++)
 		{
-			printf("Output: %3.2f: %d \n", (coins[i] / 100.0), output[i]);
+			//printf("Output: %3.2f: %d \n", (coins[i] / 100.0), output[i]);
 			checkSolution += output[i] * coins[i];
 			coinCount += output[i];
 		}
@@ -157,7 +157,7 @@ void sillyCoinMachine(int input)
 			printf("SILLY MACHINE ERROR: %d != %d \n", checkSolution, input);
 		}
 
-		printf("SILLY MACHINE ENDS with %d Coins! \nCheckVal: %d\n", coinCount, checkSolution);
+		//printf("SILLY MACHINE ENDS with %d Coins! \nCheckVal: %d\n", coinCount, checkSolution);
 
 	} else {
 
