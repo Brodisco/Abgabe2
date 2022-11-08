@@ -113,8 +113,7 @@ void nickelback() {
 		}
 	}
 
-	int eingabe_cent = eingabe * 100.01;
-	// printf("%i", eingabe_cent);
+	int eingabe_cent = eingabe * 100.0001;
 
 	while (eingabe_cent > 0) {
 		if (eingabe_cent >= 200 && muenze_e2 < 100) {
@@ -151,6 +150,7 @@ void nickelback() {
 			eingabe_cent -= 1;
 		}
 	}
+
 	printf("Große Münzen: ");
 	if (muenze_e2 > 0) {
 		printf("%i x 2 Euro, ", muenze_e2);
@@ -179,6 +179,7 @@ void nickelback() {
 	printf("Gesamtanzahl: %i\n", muenze_e2 + muenze_e1 + muenze_c50 + muenze_c20 + muenze_c10 + muenze_c5 + muenze_c2 + muenze_c1);
 
 
+
 	// Aufgabe b
 
 	muenze_e2 = 0;
@@ -190,7 +191,7 @@ void nickelback() {
 	muenze_c2 = 0;
 	muenze_c1 = 0;
 
-	eingabe_cent = eingabe * 100.01;
+	eingabe_cent = eingabe * 100.0001;
 
 	/*
 	MaxB.	Summe
