@@ -83,6 +83,7 @@ void sillyCoinMachine(int input)
 {
 
 	int maxCoins = 100;
+	int maxCoin[coinType] = {100, 100, 100, 100, 100, 100, 100, 1};
 	int coins[coinType] = {200, 100, 50, 20, 10 , 5 , 2 , 1};
 	int output[coinType] = {0, 0, 0, 0, 0, 0, 0, 0};
 	int checkSolution = 0;
