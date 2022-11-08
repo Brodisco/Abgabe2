@@ -93,6 +93,7 @@ void rollTheDices() {
 }
 
 void nickelback() {
+	// Aufgabe a
 	int muenze_e2 = 0;
 	int muenze_e1 = 0;
 	int muenze_c50 = 0;
@@ -176,7 +177,222 @@ void nickelback() {
 	if (muenze_c1 > 0) {
 		printf("%i x 1 Cent, ", muenze_c1);
 	}
-	printf("\n");
+	printf("Gesamtanzahl: %i\n", muenze_e2 + muenze_e1 + muenze_c50 + muenze_c20 + muenze_c10 + muenze_c5 + muenze_c2 + muenze_c1);
+
+
+	// Aufgabe b
+
+	muenze_e2 = 0;
+	muenze_e1 = 0;
+	muenze_c50 = 0;
+	muenze_c20 = 0;
+	muenze_c10 = 0;
+	muenze_c5 = 0;
+	muenze_c2 = 0;
+	muenze_c1 = 0;
+
+	eingabe_cent = eingabe * 100;
+
+	/*
+	MaxB.	Summe
+	200.00  38701
+	100.00  18701
+	50.00    8701
+	20.00    3701
+	10.00    1701
+	5.00      701
+	2.00      201
+	0.01        1
+	*/
+
+
+	if (eingabe_cent > 1 && eingabe_cent <= 201) {
+		// Mit 2 Cent Stücken lösbar
+		while (eingabe_cent > 1 && muenze_c2 < 100) {
+			muenze_c2++;
+			eingabe_cent -= 2;
+		}
+	} else if (eingabe_cent > 201 && eingabe_cent <= 701) {
+		// Mit 5 Cent und 2 Cent lösbar
+		// So lange mit 5 Cent auffüllen bis mit 2 Cent lösbar
+		while (eingabe_cent > 201 && muenze_c5 < 100) {
+			muenze_c5++;
+			eingabe_cent -= 5;
+		}
+		// Rest mit 2 Cent auffüllen
+		while (eingabe_cent > 1 && muenze_c2 < 100) {
+			muenze_c2++;
+			eingabe_cent -= 2;
+		}
+	} else if (eingabe_cent > 701 && eingabe_cent <= 1701) {
+		// Mit 10 Cent, 5 Cent und 2 Cent lösbar
+		// So lange mit 10 Cent auffüllen bis mit 5 Cent lösbar
+		while (eingabe_cent > 701 && muenze_c10 < 100) {
+			muenze_c10++;
+			eingabe_cent -= 10;
+		}
+		// So lange mit 5 Cent auffüllen bis mit 2 Cent lösbar
+		while (eingabe_cent > 201 && muenze_c5 < 100) {
+			muenze_c5++;
+			eingabe_cent -= 5;
+		}
+		// Rest mit 2 Cent auffüllen
+		while (eingabe_cent > 1 && muenze_c2 < 100) {
+			muenze_c2++;
+			eingabe_cent -= 2;
+		}
+	} else if (eingabe_cent > 1701 && eingabe_cent <= 3701) {
+		// Mit 20 Cent, 10 Cent, 5 Cent und 2 Cent lösbar
+		// So lange mit 20 Cent auffüllen bis mit 10 Cent lösbar
+		while (eingabe_cent > 1701 && muenze_c20 < 100) {
+			muenze_c20++;
+			eingabe_cent -= 20;
+		}
+		// So lange mit 10 Cent auffüllen bis mit 5 Cent lösbar
+		while (eingabe_cent > 701 && muenze_c10 < 100) {
+			muenze_c10++;
+			eingabe_cent -= 10;
+		}
+		// So lange mit 5 Cent auffüllen bis mit 2 Cent lösbar
+		while (eingabe_cent > 201 && muenze_c5 < 100) {
+			muenze_c5++;
+			eingabe_cent -= 5;
+		}
+		// Rest mit 2 Cent auffüllen
+		while (eingabe_cent > 1 && muenze_c2 < 100) {
+			muenze_c2++;
+			eingabe_cent -= 2;
+		}
+	} else if (eingabe_cent > 3701 && eingabe_cent <= 8701) {
+		// Mit 50 Cent, 20 Cent, 10 Cent, 5 Cent und 2 Cent lösbar
+		// So lange mit 50 Cent auffüllen bis mit 20 Cent lösbar
+		while (eingabe_cent > 3701 && muenze_c50 < 100) {
+			muenze_c50++;
+			eingabe_cent -= 50;
+		}
+		// So lange mit 20 Cent auffüllen bis mit 10 Cent lösbar
+		while (eingabe_cent > 1701 && muenze_c20 < 100) {
+			muenze_c20++;
+			eingabe_cent -= 20;
+		}
+		// So lange mit 10 Cent auffüllen bis mit 5 Cent lösbar
+		while (eingabe_cent > 701 && muenze_c10 < 100) {
+			muenze_c10++;
+			eingabe_cent -= 10;
+		}
+		// So lange mit 5 Cent auffüllen bis mit 2 Cent lösbar
+		while (eingabe_cent > 201 && muenze_c5 < 100) {
+			muenze_c5++;
+			eingabe_cent -= 5;
+		}
+		// Rest mit 2 Cent auffüllen
+		while (eingabe_cent > 1 && muenze_c2 < 100) {
+			muenze_c2++;
+			eingabe_cent -= 2;
+		}
+	} else if (eingabe_cent > 8701 && eingabe_cent <= 18701) {
+		// Mit 1€, 50 Cent, 20 Cent, 10 Cent, 5 Cent und 2 Cent lösbar
+		// So lange mit 1€ auffüllen bis mit 50 Cent lösbar
+		while (eingabe_cent > 8701 && muenze_e1 < 100) {
+			muenze_e1++;
+			eingabe_cent -= 100;
+		}
+		// So lange mit 50 Cent auffüllen bis mit 20 Cent lösbar
+		while (eingabe_cent > 3701 && muenze_c50 < 100) {
+			muenze_c50++;
+			eingabe_cent -= 50;
+		}
+		// So lange mit 20 Cent auffüllen bis mit 10 Cent lösbar
+		while (eingabe_cent > 1701 && muenze_c20 < 100) {
+			muenze_c20++;
+			eingabe_cent -= 20;
+		}
+		// So lange mit 10 Cent auffüllen bis mit 5 Cent lösbar
+		while (eingabe_cent > 701 && muenze_c10 < 100) {
+			muenze_c10++;
+			eingabe_cent -= 10;
+		}
+		// So lange mit 5 Cent auffüllen bis mit 2 Cent lösbar
+		while (eingabe_cent > 201 && muenze_c5 < 100) {
+			muenze_c5++;
+			eingabe_cent -= 5;
+		}
+		// Rest mit 2 Cent auffüllen
+		while (eingabe_cent > 1 && muenze_c2 < 100) {
+			muenze_c2++;
+			eingabe_cent -= 2;
+		}
+	} else if (eingabe_cent > 18701 && eingabe_cent <= 20000) {
+		// Nur mit allen Münzen lösbar.
+		// So lange mit 2€ auffüllen bis mit 1€ lösbar
+		while (eingabe_cent > 18701 && muenze_e2 < 100) {
+			muenze_e2++;
+			eingabe_cent -= 200;
+		}
+		// So lange mit 1€ auffüllen bis mit 50 Cent lösbar
+		while (eingabe_cent > 8701 && muenze_e1 < 100) {
+			muenze_e1++;
+			eingabe_cent -= 100;
+		}
+		// So lange mit 50 Cent auffüllen bis mit 20 Cent lösbar
+		while (eingabe_cent > 3701 && muenze_c50 < 100) {
+			muenze_c50++;
+			eingabe_cent -= 50;
+		}
+		// So lange mit 20 Cent auffüllen bis mit 10 Cent lösbar
+		while (eingabe_cent > 1701 && muenze_c20 < 100) {
+			muenze_c20++;
+			eingabe_cent -= 20;
+		}
+		// So lange mit 10 Cent auffüllen bis mit 5 Cent lösbar
+		while (eingabe_cent > 701 && muenze_c10 < 100) {
+			muenze_c10++;
+			eingabe_cent -= 10;
+		}
+		// So lange mit 5 Cent auffüllen bis mit 2 Cent lösbar
+		while (eingabe_cent > 201 && muenze_c5 < 100) {
+			muenze_c5++;
+			eingabe_cent -= 5;
+		}
+		// Rest mit 2 Cent auffüllen
+		while (eingabe_cent > 1 && muenze_c2 < 100) {
+			muenze_c2++;
+			eingabe_cent -= 2;
+		}
+	}
+
+	// Auf ungerade Zahl prüfen
+		if (eingabe_cent % 2 != 0) {
+			muenze_c1++;
+			eingabe_cent -= 1;
+		}
+
+	printf("Kleine Münzen: ");
+		if (muenze_e2 > 0) {
+			printf("%i x 2 Euro, ", muenze_e2);
+		}
+		if (muenze_e1 > 0) {
+			printf("%i x 1 Euro, ", muenze_e1);
+		}
+		if (muenze_c50 > 0) {
+			printf("%i x 50 Cent, ", muenze_c50);
+		}
+		if (muenze_c20 > 0) {
+			printf("%i x 20 Cent, ", muenze_c20);
+		}
+		if (muenze_c10 > 0) {
+			printf("%i x 10 Cent, ", muenze_c10);
+		}
+		if (muenze_c5 > 0) {
+			printf("%i x 5 Cent, ", muenze_c5);
+		}
+		if (muenze_c2 > 0) {
+			printf("%i x 2 Cent, ", muenze_c2);
+		}
+		if (muenze_c1 > 0) {
+			printf("%i x 1 Cent, ", muenze_c1);
+		}
+		printf("Gesamtanzahl: %i\n", muenze_e2 + muenze_e1 + muenze_c50 + muenze_c20 + muenze_c10 + muenze_c5 + muenze_c2 + muenze_c1);
 }
 
 int main(void)
