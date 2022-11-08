@@ -10,7 +10,6 @@ int min(int* samples, int n)
 {
 	int klein = samples[0];
 
-
 		for (int i = 0; i < n; i++)
 		{
 			if(samples[i] < klein)
@@ -25,7 +24,6 @@ int min(int* samples, int n)
 int max(int* samples, int n)
 {
 	int gross = samples[0];
-
 
 		for (int i = 0; i < n; i++)
 		{
@@ -95,11 +93,76 @@ void wurfel (void)
 }
 
 //Aufgabe 5
-void automat (void)
+//a)
+void automat (float betrag)
 {
+	int muenze_e2 = 0;
+	int muenze_e1 = 0;
+	int muenze_c50 = 0;
+	int muenze_c20 = 0;
+	int muenze_c10 = 0;
+	int muenze_c5 = 0;
+	int muenze_c2 = 0;
+	int muenze_c1 = 0;
 
+		while (betrag >= 2.00)
+			if (betrag >= 2.00)
+			{
+				betrag = betrag - 2.00;
+				muenze_e2++;
+			}
+
+		while (betrag >= 1.00)
+			if (betrag >= 1.00)
+			{
+				betrag = betrag - 1.0;
+				muenze_e1++;
+			}
+
+		while (betrag >= 0.50)
+			if (betrag >= 0.50)
+			{
+				betrag = betrag - 0.50;
+				muenze_c50++;
+			}
+
+		while (betrag >= 0.20)
+			if (betrag >= 0.20)
+			{
+				betrag = betrag - 0.20;
+				muenze_c20++;
+			}
+
+		while (betrag >= 0.10)
+			if (betrag >= 0.10)
+			{
+				betrag = betrag - 0.10;
+				muenze_c10++;
+			}
+
+		while (betrag >= 0.05)
+			if (betrag >= 0.05)
+			{
+				betrag = betrag - 0.05;
+				muenze_c5++;
+			}
+
+		while (betrag >= 0.02)
+			if (betrag >= 0.02)
+			{
+				betrag = betrag - 0.02;
+				muenze_c2++;
+			}
+
+			if (betrag > 0.00)
+			{
+				betrag = betrag - 0.01;
+				muenze_c1++;
+			}
+
+		printf("Große Münzen: %d 2e, %d 1e, %d 50c, %d 20c, %d 10c, %d 5c, %d 2c, %d 1c", muenze_e2, muenze_e1, muenze_c50, muenze_c20,
+		muenze_c10, muenze_c5, muenze_c2, muenze_c1);
 }
-
 
 int main(void)
 {
@@ -141,10 +204,17 @@ int main(void)
 	}
 
 	printf("\nAufgabe 5\n");
-	float betrag;
-	printf("Geben Sie ihr gewünschte Geldbetrag ein: ");
-	scanf("%f", &betrag);
-	automat();
+	float wert = 0.00;
+	do
+	{
+		printf("Bitte geben Sie einen Betrag bis 200€ mit maximal zwei Nachkommastellen ein.\n");
+		scanf("%f", &wert);
+	}
+	while (!(wert > 0.0 && wert <200.01));
+	printf("Ihre Einabe: %.2f", wert);
+	printf("\n");
+	int betrag = wert * 100.0001; //Wegen Rechenfehler!
+	automat(betrag);
 
 	return EXIT_SUCCESS;
 }
