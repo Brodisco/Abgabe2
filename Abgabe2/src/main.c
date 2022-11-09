@@ -13,10 +13,10 @@
 int main(void)
 {
 
-	/*
+
 	printf("Abgabe 2\n");
 
-	int samples[] = { 2, 4, 6, 8, 10, 4, 0, -3};
+	int samples[] = { 2, 4, 6, 8, 10, 4, 1, 2};
 
 	printf("Minimum des Samples: %d \n", min(samples, 8));
 	printf("Maximum des Samples: %d \n", max(samples, 8));
@@ -26,21 +26,20 @@ int main(void)
 
 	printf("Summe des Samples: %d \n", printSumIntArray(samples, 8));
 
-
 	profBWurfel();
 
 	smartCoinMachine(getUserInput());
 
 
 
-
+/*
 	for (float i = 0; i < 200; i = i + 0.01)
 	{
 		sillyCoinMachine(getUserInput(i));
 	}
 	printf("Test Successfull \n");
-
 */
+
 
 	sillyCoinMachine(getUserInput());
 

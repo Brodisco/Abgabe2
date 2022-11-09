@@ -24,7 +24,7 @@ void profBWurfel()
 	while(c != 'q')
 	{
 		printf("ENTER für neuen Versuch : q für Quit:");
-		scanf("%c", &c);
+		scanf(" %c", &c);
 		printf("\n");
 
 		if (c == 'q') break;

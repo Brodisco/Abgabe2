@@ -14,7 +14,7 @@ int printSumIntArray(int *samples, int n)
 
 	for (int i = 0; i < n; i++)
 	{
-		result += *(samples + i);
+		result += samples[i];
 	}
 
 	return result;

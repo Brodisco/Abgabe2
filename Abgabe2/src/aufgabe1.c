@@ -10,13 +10,13 @@
 
 int min(int *samples, int n)
 {
-	int result;
+	int result = samples[0];
 
 	for (int i = 0; i < n; i++)
 	{
-		if (result > *(samples + i))
+		if (result > samples[i])
 		{
-			result = *(samples + i);
+			result = samples[i];
 		}
 	}
 
@@ -25,13 +25,13 @@ int min(int *samples, int n)
 
 int max(int *samples, int n)
 {
-	int result;
+	int result = samples[0];
 
 	for (int i = 0; i < n; i++)
 	{
-		if (result < *(samples + i))
+		if (result < samples[i])
 		{
-			result = *(samples + i);
+			result = samples[i];
 		}
 	}
 
