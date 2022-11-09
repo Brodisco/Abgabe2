@@ -40,7 +40,7 @@ int max(int *samples, int n)
 
 float mean(int *samples, int n)
 {
-	float result = printSumIntArray(samples, n);
+	float result = (int)printSumIntArray(samples, n);
 
 	return (result / n);
 }

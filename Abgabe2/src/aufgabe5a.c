@@ -74,7 +74,7 @@ int *smartCoinMachine(int input)
 
 	} else {
 
-		printf("Geldbetrag ist zu Groß! \n");
+		printf("Coinamount is to large \n");
 
 	}
 

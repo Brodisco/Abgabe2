@@ -33,13 +33,13 @@ int main(void)
 
 
 /*
-	for (float i = 0; i < 200; i = i + 0.01)
+	for (int i = 0; i <= 20000; i++)
 	{
-		sillyCoinMachine(getUserInput(i));
+		sillyCoinMachine(i);
 	}
 	printf("Test Successfull \n");
 */
-
+	smartCoinMachine(getUserInput());
 
 	sillyCoinMachine(getUserInput());
 

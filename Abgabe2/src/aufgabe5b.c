@@ -12,10 +12,24 @@
 #define _FAIL 0
 #define _SUCCESS 1
 
+/*
+ *    distributeCoin
+ *    Try to distribute a given coin with smaller coins.
+ *
+ *    parameters:
+ *    int *output := adress of the original output array
+ *    int *coins := adress to the value of each coin stored in a array
+ *    int *maxCoins := adress to the max amount of coins of each type of coin
+ *    int startPos := cointype to start with
+ *    int input := Value which has to be distributed
+ *
+ *    return:
+ *    -> (int) := Flag if distrbute successful
+ */
 int distributeCoin(int *output, int *coins, int *maxCoins, int startPos, int input)
 {
-	int count = 0;
-	int check = input;
+	//int count = 0;
+	//int check = input;
 
 	//return value of this function
 	int ret = _SUCCESS;
@@ -27,28 +41,30 @@ int distributeCoin(int *output, int *coins, int *maxCoins, int startPos, int inp
 	for (int i = startPos; i < coinType; i++)
 	{
 
-		count = 0;
+		//count = 0;
 
 		// loop's as long as the amount of coins of each type is lower than the max coin amount
 		// loop's as long as it is possible to subtract a nother coin form the input value
 		// loop's as long the specific outputcoin amount is lower than the max coin amount
-		while ( count < maxCoins[i] && (input - coins[i] >= 0) && output[i] < maxCoins[i])
+		//while ( count < maxCoins[i] && (input - coins[i] >= 0) && output[i] < maxCoins[i])
+		while ( (input - coins[i] >= 0) && output[i] < maxCoins[i])
 		{
 			input -= coins[i];
 
-			check -= coins[i];
+			//check -= coins[i];
 
 			revealList[i]++;
 
 			output[i]++;
 
-			count++;
+			//count++;
 		}
 
 	}
 
 	// if the for loop was not successful to distribute the coin to smaller value of coins all changes are reversed
-	if (check != 0)
+	//if (check != 0)
+	if (input != 0)
 	{
 
 		for (int i = 0; i < coinType; i++)
@@ -127,13 +143,13 @@ void sillyCoinMachine(int input)
 
 					} else {
 
-						// in the end there could be some problems to distribube a 5 to 2 and 1 s
+						// in the end there could be some problems to distribute a 5 to 2 and 1 s
 						if (output[i] > 0 && i == 5)
 						{
 
 							if (mulitplikator == 2)
 							{
-								// this part is responsible if the the case occuress that distributing a 5 is not possible because there is a single 1 coin left
+								// this part is responsible if the the case occurs that distributing a 5 is not possible because there is a single 1 coin left
 								if (output[7] == 1 && (output[6] <= maxCoin[6] - 3 ) )
 								{
 									output[7] = 0;
@@ -146,13 +162,7 @@ void sillyCoinMachine(int input)
 
 							mulitplikator = 2;
 
-
-							if (mulitplikator <= 2)
-							{
-								check = _SUCCESS;
-							} else {
-								break;
-							}
+							check = _SUCCESS;
 
 						}
 					}
@@ -184,7 +194,7 @@ void sillyCoinMachine(int input)
 
 	} else {
 
-		printf("Geldbetrag ist zu Groß! \n");
+		printf("Coinamount to large! \n");
 
 	}
 }
