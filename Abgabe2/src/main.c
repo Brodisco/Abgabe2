@@ -39,7 +39,7 @@ int main(void)
 	}
 	printf("Test Successfull \n");
 */
-	smartCoinMachine(getUserInput());
+
 
 	sillyCoinMachine(getUserInput());
 
