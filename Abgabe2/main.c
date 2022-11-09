@@ -80,21 +80,36 @@ int summe(int* samples, int n)
 //Aufgabe 4
 void wurfel (void)
 {
+	char temp = 0;
+	int i = 1;
 	srand(time(NULL));
+	printf("Für ein Wurf drücken Sie die Eingabetaste. Wenn Sie das Programm beenden möchten, drücken Sie die Taste q.\n");
 
-	char wurfel1 [] [20] = {"Lehm" , "Holz", "Schaf", "Erz", "Getreide", "Gold"};
-	char wurfel2 [] [20] = {"Sonne", "Mühle", "Ritter", "Fragezeichen", "Räuber", "Räuber"};
+	while(temp != 'q')
+	{
+		scanf("%c", &temp);
+		if (temp == 'q')
+		{
+			break;
+		}
+		else
+		printf("%d. Wurf ", i);
+		i++;
 
-	int r1 = rand() % 6;
-	int r2 = rand() % 6;
+		char wurfel1 [] [20] = {"Lehm" , "Holz", "Schaf", "Erz", "Getreide", "Gold"};
+		char wurfel2 [] [20] = {"Sonne", "Mühle", "Ritter", "Fragezeichen", "Räuber", "Räuber"};
 
-	printf(" Wurfel 1: %s ", wurfel1[r1]);
-	printf(" Wurfel 2: %s", wurfel2[r2]);
+		int r1 = rand() % 6;
+		int r2 = rand() % 6;
+
+		printf(" Wurfel 1: %s ", wurfel1[r1]);
+		printf(" Wurfel 2: %s", wurfel2[r2]);
+	}
 }
 
 //Aufgabe 5
 //a)
-void automat1 (void)
+void automat (void)
 {
 	int muenze_e2 = 0;
 	int muenze_e1 = 0;
@@ -111,72 +126,52 @@ void automat1 (void)
 		printf("Bitte geben Sie einen Betrag bis 200€ mit maximal zwei Nachkommastellen ein.\n");
 		scanf("%f", &wert);
 	}
-	while (!(wert > 0.0 && wert <200.01));
-	printf("Ihre Einabe: %.2f", wert);
+	while (!(wert > 0.0 && wert <= 200));
+	printf("Ihre Einabe: %3.2f", wert);
 	printf("\n");
+
 	int betrag = wert * 100.0001; //Wegen Rechenfehler!
 
-		while (betrag >= 200)
+		while (betrag >= 200 && muenze_e2 < 100)
 		{
-			if (muenze_e2 <= 200)
-			{
 				betrag = betrag - 200;
 				muenze_e2++;
-			}
 		}
 
-		while (betrag >= 100)
+		while (betrag >= 100 && muenze_e1 < 100)
 		{
-			if (muenze_e1 <= 200)
-			{
-				betrag = betrag - 10;
+				betrag = betrag - 100;
 				muenze_e1++;
-			}
 		}
 
-		while (betrag >= 50)
+		while (betrag >= 50 && muenze_c50 < 100)
 		{
-			if (muenze_c50 <= 200)
-			{
 				betrag = betrag - 50;
 				muenze_c50++;
-			}
 		}
 
-		while (betrag >= 20)
+		while (betrag >= 20 && muenze_c20 < 100)
 		{
-			if (muenze_c20 <= 200)
-			{
 				betrag = betrag - 20;
 				muenze_c20++;
-			}
 		}
 
-		while (betrag >= 10)
+		while (betrag >= 10 && muenze_c10 < 100)
 		{
-			if (muenze_c10 <= 200)
-			{
 				betrag = betrag - 10;
 				muenze_c10++;
-			}
 		}
 
-		while (betrag >= 5)
+		while (betrag >= 5 && muenze_c5 < 100)
 		{
-			if (muenze_c5 <= 200)
-			{
 				betrag = betrag - 5;
 				muenze_c5++;
-			}
 		}
 
-		while (betrag >= 2)
+		while (betrag >= 2 && muenze_c2 < 100)
 		{
-			if (muenze_c2 <= 200)
-			{
 				betrag = betrag - 2;
 				muenze_c2++;
-			}
 		}
 			if (betrag >= 1)
 			{
@@ -184,8 +179,8 @@ void automat1 (void)
 				muenze_c1++;
 			}
 
-		printf("Große Münzen: %d 2e, %d 1e, %d 50c, %d 20c, %d 10c, %d 5c, %d 2c, %d 1c", muenze_e2, muenze_e1, muenze_c50, muenze_c20,
-		muenze_c10, muenze_c5, muenze_c2, muenze_c1);
+		printf("Große Münzen: %d 2e, %d 1e, %d 50c, %d 20c, %d 10c, %d 5c, %d 2c, %d 1c",
+				muenze_e2, muenze_e1, muenze_c50, muenze_c20, muenze_c10, muenze_c5, muenze_c2, muenze_c1);
 }
 
 int main(void)
@@ -211,24 +206,10 @@ int main(void)
 	printf("\n");
 
 	printf("Aufgabe 4\n");
-	printf("Für ein Wurf drücken Sie die Eingabetaste. Wenn Sie das Programm beenden möchten, drücken Sie die Taste q.\n");
-	char temp = 0;
-	int i = 1;
-	while(temp != 'q')
-	{
-		scanf("%c", &temp);
-		if (temp == 'q')
-		{
-			break;
-		}
-		else
-		printf("%d. Wurf ", i);
-		i++;
-		wurfel ();
-	}
+	wurfel();
 
 	printf("\nAufgabe 5\n");
-	automat1();
+	automat();
 
 	return EXIT_SUCCESS;
 }
