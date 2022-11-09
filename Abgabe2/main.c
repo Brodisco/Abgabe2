@@ -94,7 +94,7 @@ void wurfel (void)
 
 //Aufgabe 5
 //a)
-void automat (float betrag)
+void automat1 (void)
 {
 	int muenze_e2 = 0;
 	int muenze_e1 = 0;
@@ -104,59 +104,83 @@ void automat (float betrag)
 	int muenze_c5 = 0;
 	int muenze_c2 = 0;
 	int muenze_c1 = 0;
+	float wert = 0.00;
 
-		while (betrag >= 2.00)
-			if (betrag >= 2.00)
+	do
+	{
+		printf("Bitte geben Sie einen Betrag bis 200€ mit maximal zwei Nachkommastellen ein.\n");
+		scanf("%f", &wert);
+	}
+	while (!(wert > 0.0 && wert <200.01));
+	printf("Ihre Einabe: %.2f", wert);
+	printf("\n");
+	int betrag = wert * 100.0001; //Wegen Rechenfehler!
+
+		while (betrag >= 200)
+		{
+			if (muenze_e2 <= 200)
 			{
-				betrag = betrag - 2.00;
+				betrag = betrag - 200;
 				muenze_e2++;
 			}
+		}
 
-		while (betrag >= 1.00)
-			if (betrag >= 1.00)
+		while (betrag >= 100)
+		{
+			if (muenze_e1 <= 200)
 			{
-				betrag = betrag - 1.0;
+				betrag = betrag - 10;
 				muenze_e1++;
 			}
+		}
 
-		while (betrag >= 0.50)
-			if (betrag >= 0.50)
+		while (betrag >= 50)
+		{
+			if (muenze_c50 <= 200)
 			{
-				betrag = betrag - 0.50;
+				betrag = betrag - 50;
 				muenze_c50++;
 			}
+		}
 
-		while (betrag >= 0.20)
-			if (betrag >= 0.20)
+		while (betrag >= 20)
+		{
+			if (muenze_c20 <= 200)
 			{
-				betrag = betrag - 0.20;
+				betrag = betrag - 20;
 				muenze_c20++;
 			}
+		}
 
-		while (betrag >= 0.10)
-			if (betrag >= 0.10)
+		while (betrag >= 10)
+		{
+			if (muenze_c10 <= 200)
 			{
-				betrag = betrag - 0.10;
+				betrag = betrag - 10;
 				muenze_c10++;
 			}
+		}
 
-		while (betrag >= 0.05)
-			if (betrag >= 0.05)
+		while (betrag >= 5)
+		{
+			if (muenze_c5 <= 200)
 			{
-				betrag = betrag - 0.05;
+				betrag = betrag - 5;
 				muenze_c5++;
 			}
+		}
 
-		while (betrag >= 0.02)
-			if (betrag >= 0.02)
+		while (betrag >= 2)
+		{
+			if (muenze_c2 <= 200)
 			{
-				betrag = betrag - 0.02;
+				betrag = betrag - 2;
 				muenze_c2++;
 			}
-
-			if (betrag > 0.00)
+		}
+			if (betrag >= 1)
 			{
-				betrag = betrag - 0.01;
+				betrag = betrag - 1;
 				muenze_c1++;
 			}
 
@@ -204,17 +228,7 @@ int main(void)
 	}
 
 	printf("\nAufgabe 5\n");
-	float wert = 0.00;
-	do
-	{
-		printf("Bitte geben Sie einen Betrag bis 200€ mit maximal zwei Nachkommastellen ein.\n");
-		scanf("%f", &wert);
-	}
-	while (!(wert > 0.0 && wert <200.01));
-	printf("Ihre Einabe: %.2f", wert);
-	printf("\n");
-	int betrag = wert * 100.0001; //Wegen Rechenfehler!
-	automat(betrag);
+	automat1();
 
 	return EXIT_SUCCESS;
 }
